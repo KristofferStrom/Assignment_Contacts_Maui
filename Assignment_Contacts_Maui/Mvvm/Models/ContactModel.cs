@@ -1,4 +1,6 @@
-﻿namespace Assignment_Contacts_Maui.Mvvm.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Assignment_Contacts_Maui.Mvvm.Models;
 
 public class ContactModel
 {

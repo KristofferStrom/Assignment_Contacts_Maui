@@ -8,17 +8,17 @@
              Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions="auto, *" Padding="30" RowSpacing="20">
-        <Button Grid.Row="0" Text="Lägg till kontakt" />
+        <Button Grid.Row="0" Text="Lägg till kontakt" Command="{Binding GoToAddCommand}" />
 
         <CollectionView Grid.Row="1" ItemsSource="{Binding Contacts}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="{x:Type models:ContactModel}">
                     <Frame Margin="0,0,0,10">
                         <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*,auto" ColumnSpacing="5">
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding FirstName}"/>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding FullName}" FontSize="16"/>
+                            <Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Email}" FontSize="12"/>
+
                             <Button Grid.RowSpan="2" Grid.Column="2" Text="info"/>
-                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding LastName}"/>
-                            <Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Email}"/>
 
                             <!--<Grid.GestureRecognizers>
         <TapGestureRecognizer CommandParameter="{Binding Email}" Command="{Binding Path=GoToDetailCommand, Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}}"/>

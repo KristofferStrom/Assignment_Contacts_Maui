@@ -2,6 +2,7 @@
 using Assignment_Contacts_Maui.Mvvm.ViewModels;
 using Assignment_Contacts_Maui.Mvvm.Views;
 using Assignment_Contacts_Maui.Services;
+using CommunityToolkit.Maui.Markup;
 using Microsoft.Extensions.Logging;
 
 namespace Assignment_Contacts_Maui
