@@ -1,13 +1,9 @@
-﻿namespace Assignment_Contacts_Maui.Mvvm.Views
+﻿namespace Assignment_Contacts_Maui.Mvvm.Views;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    public MainPage()
     {
-
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-
-  
+        InitializeComponent();
     }
 }
