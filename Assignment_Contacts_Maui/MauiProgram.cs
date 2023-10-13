@@ -1,5 +1,7 @@
-﻿using Assignment_Contacts_Maui.Mvvm.ViewModels;
+﻿using Assignment_Contacts_Maui.Interfaces;
+using Assignment_Contacts_Maui.Mvvm.ViewModels;
 using Assignment_Contacts_Maui.Mvvm.Views;
+using Assignment_Contacts_Maui.Services;
 using Microsoft.Extensions.Logging;
 
 namespace Assignment_Contacts_Maui
@@ -25,6 +27,8 @@ namespace Assignment_Contacts_Maui
 
             builder.Services.AddSingleton<DetailViewModel>();
             builder.Services.AddSingleton<DetailPage>();
+
+            builder.Services.AddSingleton<IContactService, ContactService>();
 
 
             return builder.Build();
