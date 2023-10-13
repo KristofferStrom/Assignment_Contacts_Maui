@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Assignment_Contacts_Maui.Mvvm.ViewModels;
+using Assignment_Contacts_Maui.Mvvm.Views;
+using Microsoft.Extensions.Logging;
 
 namespace Assignment_Contacts_Maui
 {
@@ -15,9 +17,15 @@ namespace Assignment_Contacts_Maui
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
+            builder.Services.AddSingleton<MainViewModel>();
+            builder.Services.AddSingleton<MainPage>();
+
+            builder.Services.AddSingleton<AddViewModel>();
+            builder.Services.AddSingleton<AddPage>();
+
+            builder.Services.AddSingleton<DetailViewModel>();
+            builder.Services.AddSingleton<DetailPage>();
+
 
             return builder.Build();
         }

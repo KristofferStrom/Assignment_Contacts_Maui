@@ -54,10 +54,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Mvvm\Models\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="Mvvm\Views\AddPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
