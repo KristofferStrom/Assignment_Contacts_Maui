@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Assignment_Contacts_Maui.Mvvm.ViewModels"
+             x:DataType="{x:Type viewmodels:DetailViewModel}"
              x:Class="Assignment_Contacts_Maui.Mvvm.Views.DetailPage"
              Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="auto, *" Padding="30" RowSpacing="20">
+        <Button Grid.Row="0" Text="x" HorizontalOptions="End"/>
+
+        <VerticalStackLayout Grid.Row="1">
+            <Label Text="{Binding Contact.FullName}"  Margin="0,0,0,10"/>
+            <Label Text="{Binding Contact.Email}"  Margin="0,0,0,10"/>
+            <Label Text="{Binding Contact.PhoneNumber}"  Margin="0,0,0,10"/>
+            <Label Text="{Binding Contact.Address.FullAddress}"  Margin="0,0,0,30"/>
+
+            <Button Text="Ta bort" CommandParameter="{Binding Contact.Email}" Command="{Binding RemoveCommand}"/>
+            <Button Text="Ändra" CommandParameter="{Binding Contact.Email}" Command="{Binding EditCommand}"/>
+        </VerticalStackLayout>
+    </Grid>
 
 </ContentPage>

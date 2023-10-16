@@ -18,7 +18,7 @@
                             <Label Grid.Row="0" Grid.Column="0" Text="{Binding FullName}" FontSize="16"/>
                             <Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Email}" FontSize="12"/>
 
-                            <Button Grid.RowSpan="2" Grid.Column="2" Text="info"/>
+                            <Button Grid.RowSpan="2" Grid.Column="2" CommandParameter="{Binding Email}" Command="{Binding Path=GoToDetailCommand, Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}}" Text="info"/>
 
                             <!--<Grid.GestureRecognizers>
         <TapGestureRecognizer CommandParameter="{Binding Email}" Command="{Binding Path=GoToDetailCommand, Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}}"/>

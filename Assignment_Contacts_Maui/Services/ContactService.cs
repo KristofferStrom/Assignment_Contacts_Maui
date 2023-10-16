@@ -33,7 +33,7 @@ public class ContactService : IContactService
 
     public ContactModel Get(Func<ContactModel, bool> expression)
     {
-        throw new NotImplementedException();
+        return _contacts.FirstOrDefault(expression);
     }
 
     public ObservableCollection<ContactModel> GetAll()
@@ -46,6 +46,8 @@ public class ContactService : IContactService
 
     public bool Remove(Func<ContactModel, bool> expression)
     {
-        throw new NotImplementedException();
+        var contactToRemove = _contacts.FirstOrDefault(expression);
+
+        return _contacts.Remove(contactToRemove);
     }
 }

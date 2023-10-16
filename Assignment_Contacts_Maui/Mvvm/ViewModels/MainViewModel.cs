@@ -21,7 +21,10 @@ public partial class MainViewModel : ObservableObject
     [RelayCommand]
     public async Task GoToDetail(string email)
     {
+        var viewModel = new DetailViewModel(email, _contactService);
+        var detailPage = new DetailPage(viewModel);
 
+        await Shell.Current.Navigation.PushAsync(detailPage);
     }
 
     [RelayCommand]
