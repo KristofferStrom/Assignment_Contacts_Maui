@@ -29,6 +29,15 @@ public partial class AddViewModel : ObservableObject
                 
 		}
 		catch { }
-		
+    }
+
+    [RelayCommand]
+    public async Task GoBack()
+    {
+        try
+        {
+            await Shell.Current.GoToAsync("..");
+        }
+        catch { }
     }
 }

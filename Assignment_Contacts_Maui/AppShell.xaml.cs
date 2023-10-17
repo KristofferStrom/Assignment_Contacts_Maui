@@ -10,6 +10,7 @@ namespace Assignment_Contacts_Maui
 
             Routing.RegisterRoute(nameof(AddPage), typeof(AddPage));
             Routing.RegisterRoute(nameof(DetailPage), typeof(DetailPage));
+            Routing.RegisterRoute(nameof(EditPage), typeof(EditPage));
         }
     }
 }

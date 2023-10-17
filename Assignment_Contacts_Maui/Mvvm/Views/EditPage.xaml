@@ -2,34 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Assignment_Contacts_Maui.Mvvm.ViewModels"
-             x:DataType="{x:Type viewmodels:AddViewModel}"
-             x:Class="Assignment_Contacts_Maui.Mvvm.Views.AddPage"
-             Shell.NavBarIsVisible="False">
-
-    <ContentPage.Resources>
-        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
-            <Setter Property="TextColor" Value="Red" />
-        </Style>
-        <Style x:Key="ValidEntryStyle" TargetType="Entry">
-            <Setter Property="TextColor" Value="Green" />
-        </Style>
-    </ContentPage.Resources>
-
+             x:DataType="{x:Type viewmodels:EditViewModel}"
+             x:Class="Assignment_Contacts_Maui.Mvvm.Views.EditPage"
+             Title="EditPage">
+    
+    
     <Grid RowDefinitions="auto, *" Padding="30" RowSpacing="20">
         <Button Grid.Row="0" Command="{Binding GoBackCommand}" Text="x" HorizontalOptions="End"/>
 
         <VerticalStackLayout Grid.Row="1">
-           
+
             <Entry Text="{Binding Contact.FirstName}" Placeholder="Förnamn" Margin="0,0,0,10"/>
             <Entry Text="{Binding Contact.LastName}" Placeholder="Efternamn" Margin="0,0,0,10"/>
-            <Entry Text="{Binding Contact.Email}" Placeholder="E-postadress" Margin="0,0,0,10"/>
             <Entry Text="{Binding Contact.PhoneNumber}" Placeholder="Telefonnummer" Margin="0,0,0,10"/>
             <Entry Text="{Binding Contact.Address.StreetAddress}" Placeholder="Gatuadress" Margin="0,0,0,10"/>
             <Entry Text="{Binding Contact.Address.PostalCode}" Placeholder="Postkod" Margin="0,0,0,10"/>
             <Entry Text="{Binding Contact.Address.City}" Placeholder="Ort/Stad" Margin="0,0,0,10"/>
 
-            <Button Text="Spara" Command="{Binding SaveCommand}"/>
+            <Button Text="Spara" Command="{Binding SaveChangesCommand}"/>
         </VerticalStackLayout>
     </Grid>
-
 </ContentPage>

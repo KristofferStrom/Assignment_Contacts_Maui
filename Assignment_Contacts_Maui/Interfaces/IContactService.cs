@@ -9,4 +9,6 @@ public interface IContactService
     ContactModel Get(Func<ContactModel, bool> expression);
     ContactModel Create(ContactModel contact);
     bool Remove(Func<ContactModel, bool> expression);
+    bool Update(ContactModel contact);
+    static event Action UpdatedContact;
 }

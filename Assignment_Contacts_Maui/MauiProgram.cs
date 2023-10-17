@@ -28,8 +28,12 @@ namespace Assignment_Contacts_Maui
 
             builder.Services.AddSingleton<DetailViewModel>();
             builder.Services.AddSingleton<DetailPage>();
+            
+            builder.Services.AddTransient<EditViewModel>();
+            builder.Services.AddTransient<EditPage>();
 
             builder.Services.AddSingleton<IContactService, ContactService>();
+            builder.Services.AddSingleton<IFileService, FileService>();
 
 
             return builder.Build();
