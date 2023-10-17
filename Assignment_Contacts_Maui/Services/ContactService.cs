@@ -17,6 +17,7 @@ public class ContactService : IContactService
     public ContactService(IFileService fileService)
     {
         _contacts = new ObservableCollection<ContactModel>();
+
         _fileService = fileService;
 
         GetInitialContactsFromFile();
@@ -62,11 +63,16 @@ public class ContactService : IContactService
 
     public ContactModel Get(Func<ContactModel, bool> expression)
     {
-        var contact = _contacts.FirstOrDefault(expression);
-        if (contact == null)
-            return null!;
+        try
+        {
+            var contact = _contacts.FirstOrDefault(expression);
 
-        return contact;
+            if (contact != null)
+                return contact;
+        }
+        catch { }
+    
+        return null!;
     }
 
     public ObservableCollection<ContactModel> GetAll()
@@ -83,7 +89,6 @@ public class ContactService : IContactService
 
     public bool Remove(Func<ContactModel, bool> expression)
     {
-        
         try
         {
             var contactToRemove = _contacts.FirstOrDefault(expression);
@@ -107,6 +112,7 @@ public class ContactService : IContactService
         try
         {
             var contactToUpdate = _contacts.FirstOrDefault(c => c.Email == contact.Email);
+
             if (contactToUpdate != null)
             {
                 contactToUpdate.FirstName = contact.FirstName;
@@ -124,6 +130,5 @@ public class ContactService : IContactService
         catch { }
 
         return false;
-
     }
 }

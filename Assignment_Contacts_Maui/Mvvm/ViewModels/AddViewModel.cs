@@ -25,8 +25,7 @@ public partial class AddViewModel : ObservableObject
             {
                 Contact = new ContactModel();
                 await Shell.Current.GoToAsync("..");
-            }
-                
+            }   
 		}
 		catch { }
     }

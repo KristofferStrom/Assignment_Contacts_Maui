@@ -1,5 +1,4 @@
-﻿
-using Assignment_Contacts_Maui.Interfaces;
+﻿using Assignment_Contacts_Maui.Interfaces;
 using Assignment_Contacts_Maui.Mvvm.Models;
 using Assignment_Contacts_Maui.Mvvm.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -12,14 +11,14 @@ public partial class EditViewModel : ObservableObject
     [ObservableProperty] ContactModel contact;
 
     private IContactService _contactService;
-    private string _email;
+ 
    
 
     public EditViewModel(string email, IContactService contactService)
     {
         _contactService = contactService;
-        _email = email;
-        Contact = _contactService.Get(c => c.Email == _email);
+
+        Contact = _contactService.Get(c => c.Email == email);
     }
 
     [RelayCommand]
@@ -36,7 +35,6 @@ public partial class EditViewModel : ObservableObject
             }
         }
         catch { }
-      
     }
 
     [RelayCommand]

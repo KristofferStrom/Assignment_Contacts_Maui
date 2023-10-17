@@ -11,7 +11,6 @@
         <Button Grid.Row="0" Command="{Binding GoBackCommand}" Text="x" HorizontalOptions="End"/>
 
         <VerticalStackLayout Grid.Row="1">
-
             <Entry Text="{Binding Contact.FirstName}" Placeholder="Förnamn" Margin="0,0,0,10"/>
             <Entry Text="{Binding Contact.LastName}" Placeholder="Efternamn" Margin="0,0,0,10"/>
             <Entry Text="{Binding Contact.PhoneNumber}" Placeholder="Telefonnummer" Margin="0,0,0,10"/>

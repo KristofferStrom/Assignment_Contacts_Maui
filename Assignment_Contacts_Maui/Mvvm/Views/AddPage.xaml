@@ -6,15 +6,6 @@
              x:Class="Assignment_Contacts_Maui.Mvvm.Views.AddPage"
              Shell.NavBarIsVisible="False">
 
-    <ContentPage.Resources>
-        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
-            <Setter Property="TextColor" Value="Red" />
-        </Style>
-        <Style x:Key="ValidEntryStyle" TargetType="Entry">
-            <Setter Property="TextColor" Value="Green" />
-        </Style>
-    </ContentPage.Resources>
-
     <Grid RowDefinitions="auto, *" Padding="30" RowSpacing="20">
         <Button Grid.Row="0" Command="{Binding GoBackCommand}" Text="x" HorizontalOptions="End"/>
 

@@ -15,7 +15,6 @@
             <Label Text="{Binding Contact.PhoneNumber}"  Margin="0,0,0,10"/>
             <Label Text="{Binding Contact.Address.FullAddress}"  Margin="0,0,0,30"/>
 
-
             <Button Text="Ändra" CommandParameter="{Binding Contact.Email}" Command="{Binding EditCommand}" Margin="0,0,0,5"/>
             <Button Text="Ta bort" CommandParameter="{Binding Contact.Email}" Command="{Binding RemoveCommand}"/>
         </VerticalStackLayout>

@@ -20,8 +20,6 @@ public partial class DetailViewModel : ObservableObject
         _contactService = contactService;
         _email = email;
         Contact = _contactService.Get(c => c.Email == _email);
-
-
     }
 
     [RelayCommand]
@@ -48,8 +46,6 @@ public partial class DetailViewModel : ObservableObject
             await Shell.Current.Navigation.PushAsync(editPage);
         }
         catch { }
-       
-        
     }
 
     [RelayCommand]
@@ -61,6 +57,4 @@ public partial class DetailViewModel : ObservableObject
         }
         catch { }
     }
-
-
 }
