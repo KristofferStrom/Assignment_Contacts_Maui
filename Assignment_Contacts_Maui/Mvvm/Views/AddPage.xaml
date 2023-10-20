@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!--Lägger till sökvägen till viewmodels och sätter datatypen till AddViewModel-->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Assignment_Contacts_Maui.Mvvm.ViewModels"
              x:DataType="{x:Type viewmodels:AddViewModel}"
              x:Class="Assignment_Contacts_Maui.Mvvm.Views.AddPage"
              Shell.NavBarIsVisible="False">
-
+<!-- binder min knapp till min relay command GoBack, binder mina fält till contact properties som finns i AddViewModel, längst ner en till knapp som jag binder till en relay command Save-->
     <Grid RowDefinitions="auto, *" Padding="30" RowSpacing="20">
         <Button Grid.Row="0" Command="{Binding GoBackCommand}" Text="x" HorizontalOptions="End"/>
 

@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Lägger till sökvägen till viewmodels och models, och sätter datatypen till MainViewModel-->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:Assignment_Contacts_Maui.Mvvm.ViewModels"
@@ -6,18 +7,19 @@
              x:DataType="{x:Type viewmodels:MainViewModel}"
              x:Class="Assignment_Contacts_Maui.Mvvm.Views.MainPage"
              Shell.NavBarIsVisible="False">
-
+<!--binder min knapp till relay command GoToAdd-->
     <Grid RowDefinitions="auto, *" Padding="30" RowSpacing="20">
         <Button Grid.Row="0" Text="Lägg till kontakt" Command="{Binding GoToAddCommand}" />
-
+    <!--Binder collectionView till min contact-lista-->
         <CollectionView Grid.Row="1" ItemsSource="{Binding Contacts}">
             <CollectionView.ItemTemplate>
+                <!--Ändrar datatyp till ContactModel-->
                 <DataTemplate x:DataType="{x:Type models:ContactModel}">
                     <Frame Margin="0,0,0,10">
                         <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*,auto" ColumnSpacing="5">
                             <Label Grid.Row="0" Grid.Column="0" Text="{Binding FullName}" FontSize="16"/>
                             <Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Email}" FontSize="12"/>
-
+                            <!--Binder knappen till relay command GoToDetail, men behöver "hoppa tillbaka ett steg" för att komma tillbaka till föregående datatyp.-->
                             <Button Grid.RowSpan="2" Grid.Column="2" CommandParameter="{Binding Email}" Command="{Binding Path=GoToDetailCommand, Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}}" Text="info"/>
                         </Grid>
                     </Frame>
