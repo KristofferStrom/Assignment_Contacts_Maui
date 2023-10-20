@@ -12,12 +12,15 @@ public partial class MainViewModel : ObservableObject
     private readonly IContactService _contactService;
     [ObservableProperty] ObservableCollection<ContactModel> contacts;
 
+
+    //Hämtar upp alla kontakter initialt
     public MainViewModel(IContactService contactService)
     {
         _contactService = contactService;
         Contacts = _contactService.GetAll();
     }
 
+    //Navigerar till detailpage med aktuell email
     [RelayCommand]
     public async Task GoToDetail(string email)
     {

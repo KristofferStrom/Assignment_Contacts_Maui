@@ -2,6 +2,7 @@
 
 namespace Assignment_Contacts_Maui.Services;
 
+//Hämtar all text från en fil, om filen finns. 
 public class FileService : IFileService
 {
     public string ReadFromFile(string filePath)
@@ -19,6 +20,7 @@ public class FileService : IFileService
         return null!;
     }
 
+    //Skriver över, eller skapar upp en fil med content.
     public async Task SaveToFileAsync(string filePath, string content)
     {
         try

@@ -22,6 +22,7 @@ public partial class DetailViewModel : ObservableObject
         Contact = _contactService.Get(c => c.Email == _email);
     }
 
+    //Tar bort kontakt. Om kontakten är borttagen så skickas man tillbaka till mainpage.
     [RelayCommand]
     public async Task Remove(string email)
     {
@@ -35,8 +36,9 @@ public partial class DetailViewModel : ObservableObject
         catch { }
     }
 
+    //Skapar upp en editviewmodel (vet att inte det är optimalt) med aktuell email och navigerar till editpage
     [RelayCommand]
-    public async Task Edit(string email)
+    public async Task GoToEdit(string email)
     {
         try
         {

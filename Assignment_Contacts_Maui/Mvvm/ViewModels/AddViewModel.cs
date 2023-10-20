@@ -15,6 +15,7 @@ public partial class AddViewModel : ObservableObject
         _contactService = contactService;
     }
 
+    //Skapar upp kontakten och navigerar tillbaka.
     [RelayCommand]
     public async Task Save()
     {
@@ -30,6 +31,7 @@ public partial class AddViewModel : ObservableObject
 		catch { }
     }
 
+    //Navigerar tillbaka.
     [RelayCommand]
     public async Task GoBack()
     {

@@ -13,7 +13,7 @@ public partial class EditViewModel : ObservableObject
     private IContactService _contactService;
  
    
-
+    //Hämtar ut aktuell kontakt i konstruktorn
     public EditViewModel(string email, IContactService contactService)
     {
         _contactService = contactService;
@@ -21,6 +21,7 @@ public partial class EditViewModel : ObservableObject
         Contact = _contactService.Get(c => c.Email == email);
     }
 
+    //Spara ändringar. Om det det lyckas så skickas man till mainpage.
     [RelayCommand]
     public async Task SaveChanges()
     {

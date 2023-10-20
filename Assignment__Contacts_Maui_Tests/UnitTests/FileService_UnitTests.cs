@@ -7,6 +7,7 @@ public class FileService_UnitTests
 {
     private readonly string _fakePath = $@"c:\{Guid.NewGuid()}\fakefile.txt";
 
+    //Enhetstest som kollar att metoden returnerar null när sökvägen inte finns.
     [Fact]
     public void ReadFromFile_Should_ReturnNull_WhenFileNotExists()
     {

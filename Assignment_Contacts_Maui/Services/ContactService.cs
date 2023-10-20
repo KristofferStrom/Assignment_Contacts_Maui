@@ -12,8 +12,7 @@ public class ContactService : IContactService
     private readonly IFileService _fileService;
     private readonly string _filePath = @"C:\CMS23\C-sharp\Contacts.json";
 
-
-
+   
     public ContactService(IFileService fileService)
     {
         _contacts = new ObservableCollection<ContactModel>();
@@ -23,6 +22,7 @@ public class ContactService : IContactService
         GetInitialContactsFromFile();
     }
 
+    //Fyller _contacts med kontakter från en json-fil
     private void GetInitialContactsFromFile()
     {
         try
@@ -35,6 +35,7 @@ public class ContactService : IContactService
         catch { }
     }
 
+    //Om fälten (email) är ifyllda så läggs den kontakten i listan och listan sparas i filen.
     public ContactModel Create(ContactModel contact)
     {
         try
@@ -53,14 +54,16 @@ public class ContactService : IContactService
         return null!;
     }
 
+    //returnerar true/false beroende på om kontakten är null, om email är null eller om emailadressen redan finns i listan.
     private bool IsCorrectFieldInputs(ContactModel contact)
     {
-        if(contact == null || contact.Email == null || contact.FirstName == null || contact.LastName == null || _contacts.Any(c => c.Email == contact.Email)) 
+        if(contact == null || contact.Email == null || _contacts.Any(c => c.Email == contact.Email)) 
             return false;
 
         return true;
     }
 
+    //Hämtar en kontakt från listan
     public ContactModel Get(Func<ContactModel, bool> expression)
     {
         try
@@ -75,6 +78,7 @@ public class ContactService : IContactService
         return null!;
     }
 
+    //Hämtar hela listan. Valde att inte hämta från fil varje gång, utan bara vid uppstart. Såg i det här fallet inte att det skulle vara fördelaktigt (men kan ha fel).
     public ObservableCollection<ContactModel> GetAll()
     {
         try
@@ -87,6 +91,7 @@ public class ContactService : IContactService
         return null!;
     }
 
+    //Tar bort en kontakt från listan (om kontakten finns). Sparar sedan listan i fil.
     public bool Remove(Func<ContactModel, bool> expression)
     {
         try
@@ -107,6 +112,7 @@ public class ContactService : IContactService
         return false;
     }
 
+    //Hämtar kontakt som ska uppdateras. Mappar in alla properties med uppdaterade värden. Valde att inte kolla för varje property om värdet är ändrat.
     public bool Update(ContactModel contact)
     {
         try
